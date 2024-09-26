@@ -1,0 +1,125 @@
+package VehicleManagementSystem;
+import java.util.Scanner;
+public class AutoRegistryPro
+{
+Scanner s=new Scanner(System.in);
+public int id;	
+public String modelName;
+public double price;
+public String colour;
+public String ownerName;
+public Long mobNo;
+public Long adharNo;
+public String area;
+
+public void registration()
+	{
+		System.out.println("Enter registration Id:");
+		this.id=s.nextInt();
+		System.out.println("Enter model name:");
+		this.modelName=s.next()+s.nextLine();
+		System.out.println("Enter price here:");
+		this.price=s.nextDouble();
+		System.out.println("Enter colour:");
+		this.colour=s.next()+s.nextLine();
+		System.out.println("Enter owner name:");
+		this.ownerName=s.next()+s.nextLine();
+		System.out.println("Enter mobile number:");
+		this.mobNo=s.nextLong();
+		System.out.println("Enter adhar number:");
+		this.adharNo=s.nextLong();
+		System.out.println("Enter area:");
+		this.area=s.next()+s.nextLine();
+	}
+
+
+public void updateInfo()	
+	{
+		System.out.println("What you want to update?\n 1.Upadate owner name\n 2.Update colour\n 3.Upadate Mobile number\n 4.Update Adhar number");
+	
+	int choice=s.nextInt();
+	switch(choice)
+		{
+		case 1:
+			System.out.println("Enter new owner name:");
+			String newOwner=s.next()+s.nextLine();
+			this.ownerName=newOwner;
+			break;
+		case 2:
+			System.out.println("Enter new colour:");
+			String newColour=s.next()+s.nextLine();
+			this.colour=newColour;
+			break;
+		case 3:
+			System.out.println("Enter new mobile number:");
+			Long newMobNo=s.nextLong();
+			this.mobNo=newMobNo;
+			break;
+		case 4:
+			System.out.println("Enter new adhar number:");
+			Long newAdhar=s.nextLong();
+			this.adharNo=newAdhar;
+			break;
+			default:
+				System.out.println("Wrong choice.");
+		}
+	}
+
+
+
+
+
+
+
+public void viewVehicleInfo()
+	{
+		System.out.println("Registration Id:"+id);
+		System.out.println("Model name:"+modelName);
+		System.out.println("Price:"+price);
+		System.out.println("Colour:"+colour);
+		System.out.println("Owner name:"+ownerName);
+		System.out.println("Mobile number:"+mobNo);
+		System.out.println("Adhar number:"+adharNo);
+		System.out.println("Area:"+area);
+	}
+
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		{
+		AutoRegistryPro arp=new AutoRegistryPro();
+		while(true)
+				{
+			System.out.println("Welcome to vehicle registration system...");
+			
+			System.out.println(" 1.Register your vehicle.\n 2.Update your details.\n 3.View your vehicle details.\n 4.Exit.");
+			System.out.println("What is your choice?");
+
+			
+
+			int select=s.nextInt();
+			switch(select)
+			{
+			case 1:
+				arp.registration();
+				break;
+			case 2:
+				arp.updateInfo();
+				break;
+			case 3:
+				arp.viewVehicleInfo();
+				break;
+			case 4:
+				System.out.println("Registration completed successfully....");
+				System.exit(0);
+				break;
+				default:
+					System.out.println("Wrong choice   code:)");
+					break;
+			}
+		}
+		}
+
+	}
+}
+
